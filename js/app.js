@@ -1,5 +1,3 @@
-const $ = (css, d = document) => d.querySelector(css);
-
 const $sidebarMenu = $('#main-menu');
 
 const $sidebarPC = $('.sidebar-collapse'),
@@ -102,6 +100,26 @@ function scrollToTop() {
   });
 }
 
+function scrollToHash(hash) {
+  var $anchorEle = $(hash);
+
+  if ($anchorEle) {
+    try {
+      event.preventDefault();
+      document.body.classList.remove('sidebar-mobile-show');
+    } catch {}   
+
+    window.scroll({
+      top: getTotalOffsetTop($anchorEle) - fixedHeaderHeight,
+      behavior: 'smooth',
+    });
+
+    return true;
+  }
+
+  return false;
+}
+
 function getTotalOffsetTop(element) {
   var totalOffsetTop = 0;
   while (element.offsetParent) {
@@ -119,23 +137,32 @@ lozadObserver.observe();
 
 var fixedHeaderHeight = isMobile ? $('header').clientHeight : 0;
 
+// 子页面返回主页
+if (location.pathname == '/') {
+  var hash = location.hash;
+  if (hash) {
+    setTimeout(() => {
+      // scrollToHash(hash);
+      history.replaceState(null, '', window.location.href.split('#')[0]);
+      isMobile && window.scrollBy({
+        top: 0 - fixedHeaderHeight,
+        // behavior: 'smooth',
+      });
+    });
+  }
+}
+
 $sidebarMenu.addEventListener('click', event => {
   // console.log(event);
   var $anchorMenu = event.target.closest('a[role=anchor]');
 
   if ($anchorMenu) {
+    if (location.pathname !== '/') {
+      return;
+    }
+
     // console.log($anchorMenu);
-    var $anchorEle = $($anchorMenu.hash);
-
-    if ($anchorEle) {
-      event.preventDefault();
-      document.body.classList.remove('sidebar-mobile-show');
-
-      window.scroll({
-        top: getTotalOffsetTop($anchorEle) - fixedHeaderHeight,
-        behavior: 'smooth',
-      });
-
+    if (scrollToHash($anchorMenu.hash)) {
       return;
     }
   }

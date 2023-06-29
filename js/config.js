@@ -28,6 +28,8 @@ for (const key of Object.keys(config)) {
   }
 }
 
+const $ = (css, d = document) => d.querySelector(css);
+
 // 与@media screen中一致
 var isMobile = window.innerWidth <= 500;
 
