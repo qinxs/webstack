@@ -565,9 +565,7 @@ footer a:hover {
   gap: 8px;
 }
 .search-engine-list > li {
-  padding-left: 4px;
-  height: 32px;
-  line-height: 32px;
+  padding: 6px;
   font-size: 14px;
   color: #505050;
   border: 1px dashed transparent;
@@ -578,6 +576,12 @@ footer a:hover {
 }
 .search-engine-list > li:hover {
   border-color: rgba(255,69,0,0.8);
+}
+.search-engine-list .iconfont {
+  display: inline-block;
+  margin-right: 2px;
+  font-size: inherit;
+  transform: scale(calc(16 / 14));
 }
 .search-engine-tit {
   font-size: 14px;
