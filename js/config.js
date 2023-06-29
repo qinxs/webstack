@@ -8,7 +8,7 @@ const config = {
     searchCards: true,
     hotKeyword: true,
     engine: '必应',
-    iconPosition: '0px -40px',
+    icon: 'icon-bing',
   }
 }
 

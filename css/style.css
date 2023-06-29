@@ -494,10 +494,10 @@ footer a:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  transform: scale(0.9);
-  clip-path: circle(15px);
-  -webkit-clip-path: circle(15px);
   cursor: pointer;
+}
+.search-icon .iconfont {
+  font-size: 24px;
 }
 .search-btn {
   padding: 1em;
@@ -565,31 +565,19 @@ footer a:hover {
   gap: 8px;
 }
 .search-engine-list > li {
+  padding-left: 4px;
   height: 32px;
   line-height: 32px;
   font-size: 14px;
   color: #505050;
-  background: var(--color-bg);
+  border: 1px dashed transparent;
   border-radius: 5px;
+  background: var(--color-bg);
   letter-spacing: 0.1em;
   cursor: pointer;
 }
 .search-engine-list > li:hover {
-  color: #fff;
-  background-color: #f13434;
-}
-.search-engine-list .icon {
-  float: left;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 4px;
-  margin-right: 8px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  clip-path: circle(10px);
-  -webkit-clip-path: circle(10px);
+  border-color: rgba(255,69,0,0.8);
 }
 .search-engine-tit {
   font-size: 14px;

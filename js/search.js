@@ -13,81 +13,66 @@ var lastMatchedCards = [];
 
 var searchEngines = {
   "必应": {
-    img: "url('/images/search_icon.png')  -80px -25px",
-    position: "0px -40px",
+    icon: "icon-bing",
     url: "https://cn.bing.com/search?q="
   },
   "谷歌": {
-    img: "url('/images/search_icon.png')  -105px 0px",
-    position: "-40px 0px",
+    icon: "icon-google",
     url: "https://www.google.com/search?q="
   },
   "百度": {
-    img: "url('/images/search_icon.png') -80px 0px",
-    position: "0px 0px",
+    icon: "icon-baidu",
     url: "https://www.baidu.com/s?wd="
   },
   "好搜" :{
-    img: "url('/images/search_icon.png') -105px -25px",
-    position: "-40px -40px",
+    icon: "icon-haosou",
     url: "https://www.so.com/s?q="
   },
   "搜狗": {
-    img: "url('/images/search_icon.png') -80px -50px",
-    position: "0px -80px",
+    icon: "icon-sougou",
     url: "https://www.sogou.com/web?query="
-  },
-  "淘宝": {
-    img: "url('/images/search_icon.png') -105px -50px",
-    position: "-40px -80px",
-    url: "https://s.taobao.com/search?q="
-  },
-  "京东": {
-    img: "url('/images/search_icon.png') -80px -75px",
-    position: "0px -120px",
-    url: "http://search.jd.com/Search?keyword="
-  },
-  "天猫": {
-    img: "url('/images/search_icon.png') -105px -75px",
-    position: "-40px -120px",
-    url: "https://list.tmall.com/search_product.htm?q="
   },
   // 数字开头顺序会改变
   "_1688": {
-    img: "url('/images/search_icon.png') -80px -100px",
-    position: "0px -160px",
+    icon: "icon-1688",
     url: "https://s.1688.com/selloffer/offer_search.htm?keywords="
   },
+  "淘宝": {
+    icon: "icon-taobao",
+    url: "https://s.taobao.com/search?q="
+  },
+  "京东": {
+    icon: "icon-jingdong",
+    url: "http://search.jd.com/Search?keyword="
+  },
+  "天猫": {
+    icon: "icon-tianmao",
+    url: "https://list.tmall.com/search_product.htm?q="
+  },
   "知乎": {
-    img: "url('/images/search_icon.png') -105px -100px",
-    position: "-40px -160px",
+    icon: "icon-zhihu",
     url: "https://www.zhihu.com/search?type=content&q="
   },
   "微博": {
-    img: "url('/images/search_icon.png') -80px -125px",
-    position: "0px -200px",
+    icon: "icon-weibo",
     url: "https://s.weibo.com/weibo/"
   },
-  "B站": {
-    img: "url('/images/search_icon.png') -105px -125px",
-    position: "-40px -200px",
-    url: "http://search.bilibili.com/all?keyword="
-  },
   "豆瓣": {
-    img: "url('/images/search_icon.png') -80px -150px",
-    position: "0px -240px",
+    icon: "icon-douban",
     url: "https://www.douban.com/search?source=suggest&q="
   },
+  "B站": {
+    icon: "icon-bilibili",
+    url: "http://search.bilibili.com/all?keyword="
+  },
   "优酷": {
-    img: "url('/images/search_icon.png') -105px -150px",
-    position: "-40px -240px",
+    icon: "icon-youku",
     url: "https://so.youku.com/search_video/q_"
   },
   "GitHub": {
-    img: "url('/images/search_icon.png') -80px -175px",
-    position: "0px -280px",
+    icon: "icon-github",
     url: "https://github.com/search?utf8=✓&q="
-  }
+  },
 }
 
 
@@ -95,7 +80,7 @@ const search = {
   searchEngineTimer: null,
 
   init() {
-    $('.search-icon').style.backgroundPosition = config.search.iconPosition;
+    $('.search-icon > i').className = 'iconfont ' + config.search.icon;
     $('#hot-keyword').checked = config.search.hotKeyword;
     
     var type = config.search.searchCards
@@ -113,7 +98,7 @@ const search = {
     for (let key in searchEngines) {
       html.push(`
         <li value="${key}">
-          <span class="icon" style="background: ${searchEngines[key].img}"></span>
+          <i class="iconfont ${searchEngines[key].icon}"></i>
           ${key.replace('_', '')}
         </li>
       `);
@@ -123,9 +108,9 @@ const search = {
 
   changeSearchEngine(searchEngine) {
     config.search.engine = searchEngine;
-    config.search.iconPosition = searchEngines[searchEngine].position;
+    config.search.icon = searchEngines[searchEngine].icon;
 
-    $('.search-icon').style.backgroundPosition = searchEngines[searchEngine].position;
+    $('.search-icon > i').className = 'iconfont ' + config.search.icon;
     localStorage.setItem('search', JSON.stringify(config.search));
 
     $('.search-engine').classList.remove('active');
