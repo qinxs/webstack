@@ -14,17 +14,18 @@ const config = {
 
 for (const key of Object.keys(config)) {
   var value = localStorage.getItem(key);
-  if (value) {
-    try {
-      var jsonValue = JSON.parse(value);
-      if (typeof jsonValue === 'object') {
-        Object.assign(config[key], jsonValue);
-      } else {
-        config[key] = jsonValue;
-      }
-    } catch {
-      config[key] = value;
+
+  if (!value) continue;
+
+  try {
+    var jsonValue = JSON.parse(value);
+    if (typeof jsonValue === 'object') {
+      Object.assign(config[key], jsonValue);
+    } else {
+      config[key] = jsonValue;
     }
+  } catch {
+    config[key] = value;
   }
 }
 
@@ -36,6 +37,27 @@ var isMobile = window.innerWidth <= 500;
 !isMobile && document.body.classList.toggle('sidebar-collapsed', config.sidebarCollapsed);
 
 switchTheme(config.themeColor);
+
+// 禁止缩放
+document.addEventListener('touchstart', function(event) {
+  if (event.touches.length > 1) {
+    event.preventDefault();
+  }
+});
+
+var lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+  var now = (new Date()).getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+
+// 双指缩放
+document.addEventListener('gesturestart', function(event) {
+  event.preventDefault();
+});
 
 function switchTheme(name) {
   localStorage.setItem('themeColor', name);
