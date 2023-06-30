@@ -9,6 +9,40 @@ const $goTop = $('#go-top');
 // 可视区域的高度
 var bodyHeight = document.documentElement.clientHeight;
 
+// 背景遮罩
+const backdrop = {
+  showing: false,
+  ele: $('#backdrop'),
+  _controlEle: null,
+  _controlClass: '',
+
+  init() {
+    this.ele.addEventListener('click', () => {
+      this.close();
+    });
+  },
+
+  show(controlEle, controlClass) {
+    this.showing = true;
+    document.body.classList.add('backdrop');
+
+    if (controlEle) this._controlEle = controlEle;
+    if (controlClass) this._controlClass = controlClass;
+  },
+
+  close() {
+    this.showing = false;
+    document.body.classList.remove('backdrop');
+
+    if (this._controlEle && this._controlClass) {
+      this._controlEle.classList.remove(this._controlClass);
+      this._controlEle = null;
+      this._controlClass = '';
+    }
+  }
+}
+backdrop.init();
+
 // 禁止缩放
 window.onload = function() {
   document.addEventListener('touchstart', function(event) {
@@ -106,7 +140,11 @@ function scrollToHash(hash) {
   if ($anchorEle) {
     try {
       event.preventDefault();
-      document.body.classList.remove('sidebar-mobile-show');
+
+      if (document.body.classList.contains('sidebar-mobile-show')) {
+        document.body.classList.remove('sidebar-mobile-show');
+        backdrop.close();
+      }
     } catch {}   
 
     window.scroll({
@@ -183,6 +221,11 @@ $sidebarPC.addEventListener('click', () => {
 
 $sidebarMobile.addEventListener('click', () => {
   document.body.classList.toggle('sidebar-mobile-show');
+  if (backdrop.showing) {
+    backdrop.close();
+  } else {
+    backdrop.show(document.body, 'sidebar-mobile-show');
+  }
 });
 
 $showSettingBanner.addEventListener('click', () => {
@@ -197,5 +240,5 @@ themeSwitcher.onMenuValueChange = newValue => {
 
 // 滚动到顶部
 setGoTopStatus();
-window.addEventListener('scroll', setGoTopStatus);
+window.addEventListener('scroll', setGoTopStatus, { passive: true });
 $goTop.addEventListener('click', scrollToTop);
