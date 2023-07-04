@@ -363,7 +363,7 @@ footer a:hover {
 .mobile-banner {
   display: none;
   justify-content: end;
-  gap: 16px;
+  gap: 12px;
   font-size: 18px;
   background-color: var(--color-menu-bg);
 }
@@ -418,6 +418,12 @@ footer a:hover {
   visibility: visible;
   transform: rotateX(0);
   transition: transform 0.3s, opacity 0.1s;
+}
+.languages-switcher {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 5px;
 }
 .group {
   display: grid;

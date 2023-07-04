@@ -220,6 +220,6 @@ setGoTopStatus();
 window.addEventListener('scroll', setGoTopStatus, { passive: true });
 $goTop.addEventListener('click', scrollToTop);
 
-$('#backdrop').addEventListener('touchmove', (event) => {
+$('#backdrop').addEventListener('touchmove', event => {
   event.preventDefault();
 }, false);
