@@ -59,6 +59,7 @@ html {
 }
 body {
   font-size: 15px;
+  font-family: 'Microsoft Yahei', arial, helvetica, sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
   overflow-x: hidden;
@@ -589,17 +590,18 @@ footer a:hover {
   gap: 8px;
 }
 .search-engine-list > li {
-  padding: 6px;
+  padding: 5px;
   font-size: 14px;
-  color: #505050;
-  border: 1px dashed transparent;
+  color: #6c757d;
+  border: 1px dashed #6c757d;
   border-radius: 5px;
-  background: var(--color-bg);
   letter-spacing: 0.1em;
   cursor: pointer;
 }
 .search-engine-list > li:hover {
+  color: var(--color-text-strong);
   border-color: rgba(255,69,0,0.8);
+  background: var(--color-card-hover-bg);
 }
 .search-engine-list .iconfont {
   display: inline-block;
