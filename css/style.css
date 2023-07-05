@@ -59,7 +59,6 @@ html {
 }
 body {
   font-size: 15px;
-  font-family: 'Microsoft Yahei', arial, helvetica, sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
   overflow-x: hidden;
@@ -587,10 +586,11 @@ footer a:hover {
   margin: 8px 0;
   justify-content: space-between;
   grid-template-columns: repeat(3, 31.5%);
-  gap: 8px;
+  gap: 10px;
 }
 .search-engine-list > li {
   padding: 5px;
+  padding-left: 8px;
   font-size: 14px;
   color: #6c757d;
   border: 1px dashed #6c757d;
