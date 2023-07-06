@@ -15,6 +15,7 @@
   --color-card-bg: #fff;
   --color-card-hover-bg: #fffbf0;
   --color-card-border: #e4ecf3;
+  --search-engine-item-bg: #f1f2f2;
   --search-engine-shadow: 0px 5px 20px 0px #d8d7d7;
 }
 .sidebar-collapsed {
@@ -29,6 +30,7 @@
   --color-card-bg: transparent;
   --color-card-hover-bg: #181818;
   --color-card-border: #353636;
+  --search-engine-item-bg: #222;
   --search-engine-shadow: 0px 5px 20px 0px #000;
 }
 *,
@@ -60,7 +62,7 @@ html {
 body {
   font-size: 15px;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   overflow-x: hidden;
 }
 h4 {
@@ -90,7 +92,7 @@ i,
 input {
   -webkit-appearance: none;
   font-size: inherit;
-  background-color: var(--color-banner-bg);
+  background: var(--color-banner-bg);
 }
 input::placeholder,
 input::-webkit-input-placeholder {
@@ -121,7 +123,6 @@ input::-webkit-input-placeholder {
 .flex-v-center {
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 .h-center {
   justify-content: center;
@@ -148,7 +149,7 @@ input::-webkit-input-placeholder {
   visibility: hidden;
 }
 #go-top:hover {
-  background-color: #ccc;
+  background: #ccc;
   opacity: 0.8;
 }
 .dark img,
@@ -167,7 +168,7 @@ input::-webkit-input-placeholder {
   width: var(--menu-width);
   font-size: 14px;
   border-right: 1px solid #35383c;
-  background-color: var(--color-menu-bg);
+  background: var(--color-menu-bg);
   z-index: 101;
   transition: width 0.2s ease-out;
 }
@@ -260,7 +261,7 @@ input::-webkit-input-placeholder {
   top: 0;
   left: 100%;
   width: 230px;
-  background-color: var(--color-menu-bg);
+  background: var(--color-menu-bg);
   text-align: left;
   transition: none;
 }
@@ -269,7 +270,7 @@ input::-webkit-input-placeholder {
   position: absolute;
   left: var(--menu-width);
   padding: 0 8px;
-  background-color: var(--color-menu-bg);
+  background: var(--color-menu-bg);
 }
 .submit-tag {
   margin-top: auto;
@@ -357,7 +358,7 @@ footer a:hover {
   padding: 0 calc(var(--gap) - 8px);
   width: 100%;
   height: 100%;
-  background-color: var(--color-banner-bg);
+  background: var(--color-banner-bg);
   z-index: 100;
 }
 .mobile-banner {
@@ -365,7 +366,7 @@ footer a:hover {
   justify-content: end;
   gap: 12px;
   font-size: 18px;
-  background-color: var(--color-menu-bg);
+  background: var(--color-menu-bg);
 }
 .mobile-banner .btn:active,
 .mobile-banner .btn:hover {
@@ -388,7 +389,7 @@ footer a:hover {
   min-width: 100%;
   line-height: 2;
   color: var(--color-text);
-  background-color: var(--color-banner-bg);
+  background: var(--color-banner-bg);
   border: 1px solid var(--color-border);
   border-radius: 4px;
   box-shadow: 0px 1px 6px 0px rgba(43,42,51,0.1);
@@ -405,7 +406,7 @@ footer a:hover {
   cursor: pointer;
 }
 .dropdown-menu li:hover {
-  background-color: rgba(251,113,66,0.15);
+  background: rgba(251,113,66,0.15);
 }
 .dropdown-menu li i {
   margin-right: 0.5em;
@@ -444,7 +445,7 @@ footer a:hover {
   line-height: 1.5;
   border: 1px solid var(--color-card-border);
   border-radius: 4px;
-  background-color: var(--color-card-bg);
+  background: var(--color-card-bg);
   transition: all 0.3s ease;
 }
 .card img {
@@ -463,7 +464,7 @@ footer a:hover {
 }
 .card:hover {
   border: 1px dashed rgba(255,69,0,0.7);
-  background-color: var(--color-card-hover-bg);
+  background: var(--color-card-hover-bg);
   transform: translateY(-6px);
 }
 .card:hover .title {
@@ -491,9 +492,8 @@ footer a:hover {
   position: relative;
   width: 100%;
   height: 50px;
-  gap: 0;
   border: 1px solid var(--color-border);
-  background-color: var(--color-banner-bg);
+  background: var(--color-banner-bg);
   border-radius: 10px;
 }
 .search-input {
@@ -592,9 +592,10 @@ footer a:hover {
   padding: 5px;
   padding-left: 8px;
   font-size: 14px;
-  color: #6c757d;
-  border: 1px dashed #6c757d;
+  color: #777;
+  border: 1px dashed transparent;
   border-radius: 5px;
+  background: var(--search-engine-item-bg);
   letter-spacing: 0.1em;
   cursor: pointer;
 }
@@ -630,7 +631,7 @@ footer a:hover {
   font-size: 14px;
   border: 1px solid #2188ff;
   border-top: none;
-  background-color: var(--color-banner-bg);
+  background: var(--color-banner-bg);
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   z-index: 10;
@@ -682,7 +683,7 @@ footer a:hover {
   bottom: calc(var(--gap) / 2);
   left: var(--gap);
   padding: calc(var(--gap) / 2);
-  background-color: var(--color-card-bg);
+  background: var(--color-card-bg);
 }
 #article > h2 {
   text-align: center;
