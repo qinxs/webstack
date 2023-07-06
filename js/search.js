@@ -55,11 +55,11 @@ var searchEngines = {
   },
   "微博": {
     icon: "icon-weibo",
-    url: "https://s.weibo.com/weibo/"
+    url: "https://s.weibo.com/weibo?q="
   },
   "豆瓣": {
     icon: "icon-douban",
-    url: "https://www.douban.com/search?source=suggest&q="
+    url: "https://www.douban.com/search?q="
   },
   "B站": {
     icon: "icon-bilibili",
