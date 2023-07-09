@@ -167,7 +167,6 @@ input::-webkit-input-placeholder {
   bottom: 0;
   width: var(--menu-width);
   font-size: 14px;
-  border-right: 1px solid #35383c;
   background: var(--color-menu-bg);
   z-index: 101;
   transition: width 0.2s ease-out;
