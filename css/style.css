@@ -469,6 +469,10 @@ footer a:hover {
 .card:hover .title {
   color: #ff4500;
 }
+.card:hover .description {
+  -webkit-line-clamp: 3;
+  word-break: break-word;
+}
 .card .description {
   margin-right: 15px;
   font-size: 13px;
