@@ -730,8 +730,8 @@ footer a:hover {
   }
   .sidebar-menu {
     top: var(--header-height-mobile);
-    left: -100%;
-    transition: left 0.5s ease-in-out;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
   }
   .logo {
     display: none;
@@ -740,7 +740,7 @@ footer a:hover {
     top: 0;
   }
   .sidebar-mobile-show .sidebar-menu {
-    left: 0;
+    transform: translateX(0);
   }
   .main-content {
     left: 0;
