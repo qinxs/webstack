@@ -126,6 +126,7 @@ const search = {
     if (value) {
       window.open(searchEngines[searchEngine].url + value);
     } else {
+      $searchBox.scrollIntoView();
       $searchInput.focus();
     }
   },
@@ -426,6 +427,7 @@ function hotskeyEvents(event) {
   switch (keyCode) {
     case "Escape":
       if (document.activeElement != $searchInput) {
+        $searchBox.scrollIntoView();
         $searchInput.focus();
         return;
       }
@@ -437,6 +439,8 @@ function hotskeyEvents(event) {
       break;
     case "Enter":
       if (document.activeElement == document.body) {
+        event.preventDefault();
+        $searchBox.scrollIntoView();
         $searchInput.focus();
       }
       break;
