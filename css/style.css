@@ -192,7 +192,7 @@ input::-webkit-input-placeholder {
   scrollbar-gutter: stable;
 }
 .main-menu .fa-angle-right:before {
-  position: relative;
+  position: absolute;
   float: right;
   right: 2px;
   color: #6d747a;
@@ -241,6 +241,9 @@ input::-webkit-input-placeholder {
 }
 .sidebar-collapsed .main-menu > li:hover .menu-title {
   display: inline-block !important;
+}
+.sidebar-collapsed .main-menu > li:hover .fa-angle-right:before {
+  display: none;
 }
 .sidebar-collapsed .main-menu .has-sub > ul .menu-icon,
 .sidebar-collapsed .main-menu .has-sub > ul .menu-title {
