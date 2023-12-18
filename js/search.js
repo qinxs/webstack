@@ -436,7 +436,7 @@ function hotskeyEvents(event) {
       }
       break;
     case "Enter":
-      if (!document.activeElement.closest('.card')) {
+      if (document.activeElement != $searchInput && !document.activeElement.closest('.card')) {
         event.preventDefault();
         var isBlocked = $searchBox.getBoundingClientRect().top < 0;
         isBlocked && $searchBox.scrollIntoView();
