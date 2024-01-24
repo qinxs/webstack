@@ -1,8 +1,3 @@
-@media (any-hover: hover) {
-  :root {
-    --go-top-bg-hover: #ccc;
-  }
-}
 :root {
   --menu-width: 280px;
   --header-height: 72px;
@@ -154,7 +149,7 @@ input::-webkit-input-placeholder {
   visibility: hidden;
 }
 #go-top:hover {
-  background: var(--go-top-bg-hover);
+  background: #ccc;
   opacity: 0.8;
 }
 .dark img,
