@@ -1,3 +1,8 @@
+@media (any-hover: hover) {
+  :root {
+    --go-top-bg-hover: #ccc;
+  }
+}
 :root {
   --menu-width: 280px;
   --header-height: 72px;
@@ -149,7 +154,7 @@ input::-webkit-input-placeholder {
   visibility: hidden;
 }
 #go-top:hover {
-  background: #ccc;
+  background: var(--go-top-bg-hover);
   opacity: 0.8;
 }
 .dark img,
@@ -469,16 +474,19 @@ footer a:hover {
   color: var(--color-text-strong);
 }
 .card:hover,
+.card:focus,
 .card:focus-within {
   border: 1px dashed rgba(255,69,0,0.7);
   background: var(--color-card-hover-bg);
   transform: translateY(-6px);
 }
 .card:hover .title,
+.card:focus .title,
 .card:focus-within .title {
   color: #ff4500;
 }
 .card:hover .description,
+.card:focus .description,
 .card:focus-within .description {
   -webkit-line-clamp: 3;
 }
@@ -610,6 +618,7 @@ footer a:hover {
   border-radius: 5px;
   background: var(--search-engine-item-bg);
   letter-spacing: 0.1em;
+  white-space: nowrap;
   cursor: pointer;
 }
 .search-engine-list > li:hover {
@@ -619,7 +628,7 @@ footer a:hover {
 }
 .search-engine-list .iconfont {
   display: inline-block;
-  margin-right: 2px;
+  margin-right: 8px;
   font-size: inherit;
   transform: scale(calc(16 / 14));
 }
