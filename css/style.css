@@ -240,6 +240,7 @@ input::-webkit-input-placeholder {
 }
 .sidebar-collapsed .main-menu > li:hover .menu-title {
   display: inline-block !important;
+  margin-left: 0;
 }
 .sidebar-collapsed .main-menu > li:hover .fa-angle-right:before {
   display: none;
