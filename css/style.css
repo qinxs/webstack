@@ -217,6 +217,7 @@ input::-webkit-input-placeholder {
 }
 .menu-title {
   margin-left: 14px;
+  font-weight: normal;
 }
 .has-sub ul .menu-title {
   margin-left: 14px !important;
