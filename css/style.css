@@ -1,7 +1,7 @@
 :root {
   --menu-width: 280px;
   --header-height: 72px;
-  --header-height-mobile: 60px;
+  --header-height-mobile: 54px;
   --footer-height: 60px;
   --card-cols: 4;
   --gap: 32px;
@@ -774,10 +774,6 @@ footer a:hover {
   }
   .main-content {
     left: 0;
-  }
-  header {
-    position: fixed;
-    top: 0;
   }
   main {
     margin-top: var(--header-height);
